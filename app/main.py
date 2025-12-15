@@ -13,7 +13,7 @@ from.database import engine, SessionLocal, get_db
 from.schemas import *
 from.routers import post, user, auth, vote
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()  # uvicorn app.main:app --reload
 
