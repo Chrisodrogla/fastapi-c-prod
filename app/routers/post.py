@@ -93,7 +93,6 @@ def get_posts(
 # CREATE POST
 @router.post("/",status_code=status.HTTP_201_CREATED,response_model=CreatePost)
 def create_post(post:CreatePost,db: Session = Depends(get_db),current_user_id: int = Depends(oauth2.get_current_user)):
-    print(f"{current_user_id.id} heres the ID Bitch")
     created_post = models.Post(user_id = current_user_id.id,**post.model_dump())
     db.add(created_post)
     db.commit() 
